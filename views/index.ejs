@@ -1,0 +1,151 @@
+<% layout('layout', { title: 'CivicEase - Friendly Government Forms' }) %>
+
+<section class="container hero-section">
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <h1 class="text-gradient-emerald fade-in-up">
+        Friendly help for tough government forms
+      </h1>
+      <p class="lead text-muted fade-in-up stagger-item">
+        Built for street vendors, elderly citizens, and anyone who finds online
+        forms confusing.
+      </p>
+      <div class="mt-4 fade-in-up stagger-item">
+        <a href="/signup" class="btn btn-primary me-2"
+          >Start guided onboarding</a
+        >
+        <a href="#demo" class="btn btn-secondary">Watch how it works</a>
+      </div>
+      <div class="mt-4 d-flex gap-3 stagger-item">
+        <span class="badge badge-active">Step-by-step</span>
+        <span class="badge badge-pending">Video hints</span>
+        <span class="badge badge-completed">Live support</span>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div
+        id="hero3d"
+        class="sparkle loading"
+        style="height: 360px; border-radius: 16px"
+      ></div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="container mt-5 onscroll-section">
+  <h2>What problems does it solve?</h2>
+  <div class="dashboard-grid">
+    <div class="glass-card hover-lift stagger-item">
+      <h3>Low digital literacy</h3>
+      <p>
+        Uses very simple language, icons, and big buttons so people don’t feel
+        lost.
+      </p>
+    </div>
+    <div class="glass-card hover-lift stagger-item">
+      <h3>Fear of making mistakes</h3>
+      <p>
+        Checks every field and explains errors in everyday words before you
+        submit.
+      </p>
+    </div>
+    <div class="glass-card hover-lift stagger-item">
+      <h3>No human nearby to help</h3>
+      <p>
+        Built-in chat and video walk-throughs replace the need for a tech-savvy
+        relative.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="steps" class="container mt-5 onscroll-section">
+  <h2>How the guided onboarding works</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="stat-card hover-lift stagger-item">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Pick your form</div>
+        <p>
+          Choose the government service: ID card, pension, license, and more.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stat-card hover-lift stagger-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Follow video + hints</div>
+        <p>
+          Each question is explained with a short clip and a simple text hint.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="stat-card hover-lift stagger-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Get it checked</div>
+        <p>
+          Before submitting, a quick review highlights risky mistakes in red.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="container mt-5 onscroll-section">
+  <h2>Try a sample form step</h2>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="glass-card">
+        <h3 class="mb-3">Sample: Basic ID application</h3>
+
+        <div class="video-wrapper mb-3">
+          <!-- Replace src with your hosted walkthrough later -->
+          <video controls style="width: 100%; border-radius: 12px">
+            <source src="/media/sample-walkthrough.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <p class="text-muted">
+          Watch the short clip, then fill the field on the right. The hint below
+          helps you.
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="glass-card">
+        <form>
+          <div class="form-group">
+            <label class="form-label">
+              Your full name
+              <span
+                class="tooltip"
+                data-tooltip="Use the same name as in your official ID card."
+              >
+                ⓘ
+              </span>
+            </label>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Type your name exactly as on card"
+            />
+            <small class="text-muted d-block mt-1">
+              Hint: No nicknames. If your card says “Ramesh Kumar Yadav”, type
+              the same here.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Date of birth</label>
+            <input type="date" class="form-input" />
+          </div>
+
+          <button type="button" class="btn btn-primary w-100">
+            Check my answers
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
