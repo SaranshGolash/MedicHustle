@@ -1,0 +1,24 @@
+<% layout('layout', { title: 'Login - CivicEase' }) %>
+
+<section class="login-container">
+  <div class="login-card">
+    <h1 class="login-title">Welcome back</h1>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <form action="/auth/login" method="POST">
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" name="password" required />
+      </div>
+      <button class="btn btn-primary w-100 mt-3">Login</button>
+      <p class="text-muted mt-3">
+        New user? <a href="/signup">Create an account</a>
+      </p>
+    </form>
+  </div>
+</section>
