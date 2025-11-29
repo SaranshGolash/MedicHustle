@@ -1,0 +1,25 @@
+<%- include('../partials/head') %> <%- include('../partials/nav') %>
+<div class="container py-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h4><%= booking.dept_name %> — Token <%= booking.token %></h4>
+      <p>Status: <%= booking.status %></p>
+      <p>Estimated wait: <%= estimated_wait %> minutes</p>
+
+      <div
+        id="map"
+        style="height: 300px; border-radius: 12px; overflow: hidden"
+      >
+        Loading micro-map...
+      </div>
+
+      <script>
+        // micro-map placeholder — replace with actual maps SDK (Leaflet / Google Maps) in prod
+        document.getElementById("map").innerHTML =
+          '<div style="padding:20px">Micromap: follow signs A → Reception → ' +
+          "<%= booking.dept_name %>" +
+          "</div>";
+      </script>
+    </div>
+  </div>
+</div>
