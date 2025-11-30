@@ -1,0 +1,386 @@
+/* enhanced.css - Visual Effects & Animation */
+/* Theme: Civic Harmony (Royal Blue & Soft Rose) */
+
+/* --- Badge Styles --- */
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px; /* Pill shape is friendlier */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+/* Shine Effect on Badges */
+.badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+/* Active = Primary Blue (Trust) */
+.badge-active {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa; /* Light Blue text */
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Pending = Soft Rose (Attention/Lovable) */
+.badge-pending {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af; /* Soft Pink text */
+  border-color: rgba(244, 63, 94, 0.4);
+  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.2);
+}
+
+/* Completed = Teal/Green (Success - kept distinct from Blue) */
+.badge-completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+/* Draft = Slate (Neutral) */
+.badge-draft {
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* --- Floating Action Button (FAB) --- */
+.floating-action {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px; /* Slightly larger for better UX */
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-primary); /* Uses the Blue Gradient */
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy transition */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-action:hover {
+  transform: scale(1.1) rotate(90deg); /* Playful rotation */
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.6);
+  background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+}
+
+/* --- Sparkle Effect --- */
+.sparkle {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* Blue and Rose particles */
+  background: radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.15) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(244, 63, 94, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px, 40px 40px;
+  animation: sparkle 10s linear infinite;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
+
+/* --- Loading Animation --- */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  /* Blue shimmer */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.2),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* --- Glow Effects --- */
+.glow-primary {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+}
+
+.glow-accent {
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.4);
+}
+
+/* --- Hover Animations --- */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Text Gradients --- */
+.text-gradient-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Card Variants --- */
+.card-primary {
+  border-left: 4px solid var(--primary-blue);
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.1) 0%,
+    rgba(30, 41, 59, 0.9) 100%
+  );
+}
+
+.card-accent {
+  border-left: 4px solid var(--accent-rose);
+  background: linear-gradient(
+    135deg,
+    rgba(244, 63, 94, 0.1) 0%,
+    rgba(30, 41, 59, 0.9) 100%
+  );
+}
+
+/* --- Status Indicators --- */
+.status-online {
+  position: relative;
+}
+
+.status-online::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-blue);
+  animation: pulse 2s infinite;
+}
+
+/* --- Progress Bars --- */
+.progress-bar {
+  width: 100%;
+  height: 8px; /* Slightly thicker */
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated stripe on progress bar */
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: moveStripe 1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes moveStripe {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 20px;
+  }
+}
+
+/* --- Tooltip --- */
+.tooltip {
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted rgba(255, 255, 255, 0.5);
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: rgba(15, 23, 42, 0.95);
+  color: #f8fafc;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform-origin: bottom center;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* --- Mobile Menu Toggle --- */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+/* --- Reveal Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* Smoother easing */
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Stagger Animation */
+.stagger-item {
+  opacity: 0; /* Initially hidden */
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.stagger-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-item:nth-child(5) {
+  animation-delay: 0.5s;
+}

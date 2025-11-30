@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title><%= title || "CivicEase Onboarding" %></title>
+    <title>
+      <%= (typeof title != 'undefined' ? title : 'CivicEase Onboarding') %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/enhanced.css" />
@@ -19,7 +21,7 @@
           <li><a href="#how-it-works">How it helps</a></li>
           <li><a href="#steps">Guided steps</a></li>
           <li><a href="#demo">Demo form</a></li>
-          <% if (!user) { %>
+          <% if (!locals.user) { %>
           <li><a href="/login">Login</a></li>
           <li><a href="/signup" class="btn btn-primary">Get started</a></li>
           <% } else { %>
@@ -31,12 +33,9 @@
 
     <main class="main-content expanded"><%- body %></main>
 
-    <!-- Floating help/chat button -->
     <button class="floating-action" id="chatToggle" aria-label="Open help chat">
       ?
     </button>
-
-    <!-- Simple chat widget shell -->
     <div
       id="chatWidget"
       class="glass-card"
